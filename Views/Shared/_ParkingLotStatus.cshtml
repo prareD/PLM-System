@@ -1,0 +1,15 @@
+﻿@using PLM_System.Models
+
+@model List<Car>
+
+<div class="parking-lot-status">
+    <h3>Cars currently parked:</h3>
+    <ul class="list-group">
+        @foreach (var car in Model)
+        {
+            <li class="list-group-item">@car.TagNumber</li>
+        }
+    </ul>
+</div>
+
+

@@ -1,0 +1,23 @@
+﻿@model PLM_System.Models.ParkingSpots
+
+<div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="statsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="statsModalLabel">Parking Lot Statistics</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Number of spots available as of now: <span class="badge badge-primary">@Model.AvailableSpots</span></p>
+                <p>Today's revenue as of now: <span class="badge badge-success">@Model.Revenue.ToString("C")</span></p>
+                <p>Average number of cars per day (for the past 30 days): <span class="badge badge-info">@Model.AverageCarsPerDay</span></p>
+                <p>Average revenue per day (for the past 30 days): <span class="badge badge-warning">@Model.AverageRevenuePerDay.ToString("C")</span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

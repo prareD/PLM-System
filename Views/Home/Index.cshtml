@@ -1,0 +1,71 @@
+﻿@using System.Data
+@using PLM_System.Models
+
+@model List<PLM_System.Models.Car>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Parking Lot Management System</title>
+    <link rel="stylesheet" href="~/css/PML_styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/Plm_script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="areaA">
+            <h3>Vehicle Check-in/Check-out</h3>
+            <input type="text" id="tagNumberInput" placeholder="Enter tag number" />
+            <button id="checkInBtn">Check In</button>
+            <button id="checkOutBtn">Check Out</button>
+            <button id="statsbtn">Stats</button>
+            <div id="errorMessage">@ViewBag.ErrorMessage</div>
+        </div>
+
+
+        <div id="areaB">
+            <p>Total spots: @ViewBag.TotalSpots</p>
+            <p>Hourly Fee: $@ViewBag.HourlyFee</p>
+            <h3>Parking Lot Status</h3>
+            <table id="parkingTable">
+                <thead>
+                    <tr>
+                        <th>Tag Number</th>
+                        <th>Spot ID</th>
+                        <th>Check-In Time</th>
+                        <th>Check-Out Time</th>
+                        <th>Elapsed Time(Hours)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var car in Model)
+                    {
+                        <tr>
+                            <td>@car.TagNumber</td>
+                            <td>@car.SpotId</td>
+                            <td id=" ChkInTm">@car.CheckInTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                            <td>@(car.CheckOutTime.HasValue ? car.CheckOutTime.Value.ToString("yyyy-MM-dd HH:mm:ss") : "-")</td>
+                            <td  id="elapsed-time">0</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div id="modelData" data-cars="@Html.Raw(Json.Serialize(Model))"></div>
+        </div>
+    </div>
+
+    <div id="statsModal" class="modal">
+        <div class="modal-content">
+            <h3>Stats</h3>
+            <ul>
+                <li>Number of spots available as of now: <span id="spotsAvailable"></span></li>
+                <li>Today’s revenue as of now: <span id="todaysRevenue"></span></li>
+                <li>Average number of cars per day (for the past 30 days): <span id="avgCarsPerDay"></span></li>
+                <li>Average revenue per day (for the past 30 days): <span id="avgRevenuePerDay"></span></li>
+            </ul>
+            <button id="closeModal">Close</button>
+        </div>
+    </div>
+
+
+</body>

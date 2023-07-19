@@ -1,0 +1,8 @@
+﻿@{
+    string error = ViewBag.Error;
+}
+
+@if (!string.IsNullOrEmpty(error))
+{
+    <div class="error-message">@error</div>
+}
