@@ -1,8 +1,6 @@
 ﻿$(document).ready(function () {
     $("#tagNumberInput").keyup(function () {
-        var tagNumber = $(this).val().trim();
-        tagNumber = tagNumber.replace(/[^A-Za-z0-9]/g, '');
-        tagNumber = tagNumber.toUpperCase().substring(0, 8);
+        var tagNumber = $(this).val().trim().replace(/[^A-Za-z0-9]/g, '').toUpperCase().substring(0, 8);
         $(this).val(tagNumber);
     });
 
@@ -38,6 +36,7 @@
             }
         });
     });
+
     var checkOutBtn = false;
     $("#checkOutBtn").click(function () {
         var tagNumber = $("#tagNumberInput").val().trim();
@@ -60,6 +59,7 @@
             }
         });
     });
+
     $("#statsbtn").click(function () {
         $.ajax({
             url: "/Home/Stats",
@@ -93,8 +93,9 @@
         if ($("#parkingTable tbody tr").length >= 15) {
             $("#checkInBtn").text("Lots are full").prop("disabled", true);
         }
-    } 
-    function handleCheckOutSuccess(totalAmount,cars) {
+    }
+
+    function handleCheckOutSuccess(totalAmount, cars) {
         var tagNumber = $("#tagNumberInput").val().trim();
         var foundCar = cars.find(function (car) {
             return car.tagNumber === tagNumber;
@@ -125,7 +126,7 @@
             }
         });
     }
-  
+
     function clearInputAndError() {
         $("#tagNumberInput").val("");
         $("#errorMessage").text("");
@@ -147,23 +148,26 @@
         var tableBody = $("#parkingTable tbody");
         tableBody.empty();
 
-        var currentTime = new Date(); //newL
+        var currentTime = new Date();
         cars.forEach(function (car) {
             var checkInTime = new Date(car.checkInTime);
-            var elapsedHours = CalculateElapsedTime(checkInTime, currentTime); //newL
+            var elapsedHours = CalculateElapsedTime(checkInTime, currentTime);
             var row =
                 `<tr>
                 <td>${car.tagNumber}</td>
                 <td>${car.spotId}</td>
                 <td>${formatDate(checkInTime)}</td>
-                <td>${formatDate(car.checkoutTime) }</td>
+                <td>${formatDate(car.checkoutTime)}</td>
                 <td class="elapsed-time">${elapsedHours.toFixed(2)}</td>
             </tr>`;
-            tableBody.append(row); //<td>${elapsedTime}</td>
+            tableBody.append(row);
         });
     }
+
     function formatDate(date) {
-        if (!isDate(date)) { return "-"}
+        if (!isDate(date)) {
+            return "-";
+        }
         return date.toLocaleString('en-US', {
             year: 'numeric',
             month: '2-digit',
@@ -178,14 +182,12 @@
         return value instanceof Date && !isNaN(value.getTime());
     }
 
-    // Function to calculate elapsed time
     function CalculateElapsedTime(checkInTime, currentTime) {
         var elapsedMilliseconds = currentTime - checkInTime;
         var elapsedHours = elapsedMilliseconds / (1000 * 60 * 60);
         return elapsedHours;
     }
 
-    // Function to update elapsed times
     function updateElapsedTimes() {
         $(".elapsed-time").each(function () {
             var tagNumber = $(this).closest("tr").find("td:first-child").text();
@@ -202,7 +204,7 @@
             }
         });
     }
+
     updateElapsedTimes();
-    // Schedule the function to run every 30 seconds
-    setInterval(updateElapsedTimes, 20 * 1000); // 30 seconds in milliseconds
+    setInterval(updateElapsedTimes, 20 * 1000); // 20 seconds in milliseconds
 });

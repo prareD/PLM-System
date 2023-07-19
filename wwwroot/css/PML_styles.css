@@ -1,3 +1,12 @@
+<!DOCTYPE html >
+<html >
+<head >
+<meta charset="utf-8" / >
+<title > Parking Lot Management System</title >
+<link rel="stylesheet" href="~/css/PML_styles.css" / >
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" > </script >
+<script src="~/js/Plm_script.js" > </script >
+<style >
 /* Global Styles */
 body {
     background-color: #fff;
@@ -20,8 +29,8 @@ body {
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    width: 45%;
-    margin-right: 20px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
     #areaA h3 {
@@ -35,7 +44,8 @@ body {
     border: none;
     border-radius: 5px;
     margin-right: 10px;
-    width: 50%;
+    width: 100%;
+    max-width: 300px;
 }
 
 #checkInBtn,
@@ -47,6 +57,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 10px;
 }
 
     #checkInBtn[disabled] {
@@ -63,17 +74,17 @@ body {
 #statsbtn {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF55;
+    background-color: #FF8C00;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0;
-    position: absolute;
-    top: 26%;
-    left: 30%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    margin-bottom: 20px;
+    max-width: 200px;
+    position: relative;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
 }
 
 #errorMessage {
@@ -88,7 +99,7 @@ body {
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    width: 45%;
+    width: 100%;
 }
 
     #areaB h3 {
@@ -98,6 +109,7 @@ body {
 
     #areaB p {
         text-align: center;
+        margin-bottom: 10px;
     }
 
 table {
@@ -137,7 +149,8 @@ tbody tr:nth-child(even) {
     background-color: #f5f5f5;
     margin: 10% auto;
     padding: 20px;
-    width: 50%;
+    width: 80%;
+    max-width: 600px;
     border-radius: 5px;
 }
 
@@ -166,12 +179,59 @@ tbody tr:nth-child(even) {
     cursor: pointer;
 }
 
-/* Position Area B on the right side */
-#areaB {
-    align-self: flex-start;
+/* Responsive Styles */
+
+/* For screens up to 768px */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    #areaA,
+    #areaB {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #tagNumberInput,
+    #statsbtn {
+        width: 100%;
+        margin-bottom: 10px;
+        max-width: none;
+    }
 }
 
-/* Add space between Area A and Area B */
-.container > div {
-    margin-bottom: 20px;
+/* For screens larger than 768px */
+@media (min-width: 769px) {
+    .container {
+        flex-direction: row;
+    }
+
+    #areaA,
+    #areaB {
+        width: 45%;
+        margin-right: 20px;
+    }
+}
+
+/* Add this to position input and buttons side by side */
+.input-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#tagNumberInput {
+    flex: 1; /* Take available space */
+    margin-right: 10px;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+#checkInBtn,
+#checkOutBtn {
+    margin: 0;
 }

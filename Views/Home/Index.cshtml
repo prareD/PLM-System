@@ -15,10 +15,14 @@
     <div class="container">
         <div id="areaA">
             <h3>Vehicle Check-in/Check-out</h3>
-            <input type="text" id="tagNumberInput" placeholder="Enter tag number" />
-            <button id="checkInBtn">Check In</button>
-            <button id="checkOutBtn">Check Out</button>
-            <button id="statsbtn">Stats</button>
+            <div class="input-button-container">
+                <input type="text" id="tagNumberInput" placeholder="Enter tag number" />
+                <div class="button-container">
+                    <button id="checkInBtn">Check In</button>
+                    <button id="checkOutBtn">Check Out</button>
+                </div>
+                <button id="statsbtn">Stats</button>
+            </div>
             <div id="errorMessage">@ViewBag.ErrorMessage</div>
         </div>
 
