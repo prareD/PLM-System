@@ -7,7 +7,7 @@ PLM_System is a Parking Lot Management System that simplifies the management of 
 Before running the application, make sure you have the following prerequisites installed:
 
 - .NET 6
-- MySQL 8.0.17
+- MySQL 16.0.10
 
 ## Built With
 
@@ -24,10 +24,9 @@ Before running the application, make sure you have the following prerequisites i
 2. Open the `Data.sql` file located in the resources folder of the code base.
 3. Run the SQL commands present in the `Data.sql` file to set up the necessary tables and data in the database.
 
-##Conditions
+## Conditions
 
-vehicle number can be max of 8 digits
-Change Databse path in appsettings.json as per requirment
+1.vehicle number can be max of 8 digits and make sure to change connection string path in appsettings.json as per requirment.
 
 ## Running the Application
 
