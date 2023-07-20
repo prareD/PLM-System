@@ -12,6 +12,7 @@ Before running the application, make sure you have the following prerequisites i
 ## Built With
 
 - .NET 6
+- Microsoft SQL Server 2022  - 16.0.1000.6 (X64)
 - CSS3
 - HTML5
 - JavaScript
