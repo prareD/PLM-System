@@ -19,6 +19,10 @@ Before running the application, make sure you have the following prerequisites i
 - jQuery
 - Visual Studio 2022
 
+## NuGet Packages
+- NUnit 3.13.3
+- Moq 4.18.4
+
 ## Setting Up the Database
 
 1. Post the installation of MySQL, Java, and Maven, create a new database in your MySQL server.
