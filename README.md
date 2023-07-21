@@ -6,19 +6,19 @@ PLM_System is a Parking Lot Management System that simplifies the management of 
 
 Before running the application, make sure you have the following prerequisites installed:
 
-- .NET 6
+- .NET 7
 - MySQL 16.0.10
 
 ## Built With
 
-- .NET 6
+- .NET 7
 - Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64)
 - CSS3
 - HTML5
 - JavaScript
 - jQuery
 - Visual Studio 2022
-- 
+
 ## NuGet Packages
 - NUnit 3.13.3
 - Moq 4.18.4
