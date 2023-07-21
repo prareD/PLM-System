@@ -12,7 +12,7 @@ Before running the application, make sure you have the following prerequisites i
 ## Built With
 
 - .NET 6
-- Microsoft SQL Server 2022  - 16.0.1000.6 (X64)
+- Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64)
 - CSS3
 - HTML5
 - JavaScript
@@ -21,9 +21,9 @@ Before running the application, make sure you have the following prerequisites i
 
 ## Setting Up the Database
 
-1. Post the installation of MySQL, Java, and Maven, create a new database in your MySQL server.
-2. Open the `Data.sql` file located in the resources folder of the code base.
-3. Run the SQL commands present in the `Data.sql` file to set up the necessary tables and data in the database.
+1. Post the installation of .Net 6, sql server create a new database in your MySQL server.
+2. Open the `PLM_SystemDB.sql` file located in the resources folder of the code base.
+3. Run the SQL commands present in the `PLM_SystemDB.sql` file to set up the necessary tables and data in the database.
 
 ## Conditions
 
