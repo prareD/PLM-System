@@ -25,7 +25,7 @@ Before running the application, make sure you have the following prerequisites i
 
 ## Setting Up the Database
 
-1. Post the installation of .Net 6, sql server create a new database in your MySQL server.
+1. Post the installation of .Net 7, sql server create a new database in your MySQL server.
 2. Open the `DataBase/PLM_SystemDB.sql` file located in the resources folder of the code base.
 3. Run the SQL commands present in the `DataBase/PLM_SystemDB.sql` file to set up the necessary tables and data in the database.
 
