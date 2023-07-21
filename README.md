@@ -18,6 +18,10 @@ Before running the application, make sure you have the following prerequisites i
 - JavaScript
 - jQuery
 - Visual Studio 2022
+- 
+## NuGet Packages
+- NUnit 3.13.3
+- Moq 4.18.4
 
 ## Setting Up the Database
 
